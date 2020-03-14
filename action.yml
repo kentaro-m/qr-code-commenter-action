@@ -1,15 +1,15 @@
 name: 'QR Code Commenter'
-description: 'Provide a description here'
+description: 'A GitHub Action that posts a QR code to a pull request comment.'
 author: 'kentaro-m'
 inputs:
   comment:
-    description: 'input description here'
+    description: 'The body for comment to post to a pull request comment. Must be contained {qrcode} placeholder and placed it to a new line.'
     required: true
   content:
-    description: 'input description here'
+    description: 'The content to encode to QR code. Must be string.'
     required: true
   repo-token:
-    description: 'input description here'
+    description: 'Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
     required: true
 runs:
   using: 'node12'

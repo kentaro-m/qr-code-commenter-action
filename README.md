@@ -1,6 +1,8 @@
 # QR Code Commenter
 A GitHub Action that posts a QR code to a pull request comment.
 
+![posts a QR code to a pull request comment.](usage.png)
+
 ## :arrow_forward: Usage
 ```yml
 uses: kentaro-m/qr-code-commenter-action@master

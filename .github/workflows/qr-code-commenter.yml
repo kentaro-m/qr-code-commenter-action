@@ -12,5 +12,5 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           content: https://blog.kentarom.com/
           comment: |
-            Hi, Ken! This is test for QR Code Commenter.
+            Hi, Ken! This is test {qrcode} for QR Code Commenter.
             {qrcode}

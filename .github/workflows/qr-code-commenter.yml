@@ -7,7 +7,7 @@ jobs:
   action-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/qr-code-commenter-action@21b6436
+      - uses: kentaro-m/qr-code-commenter-action@60c0c17
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           content: https://blog.kentarom.com/

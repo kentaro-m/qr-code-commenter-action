@@ -1,101 +1,41 @@
-<p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p>
-
 # QR Code Commenter
+A GitHub Action that posts a QR code to a pull request comment.
 
-Use this template to bootstrap the creation of a JavaScript action.:rocket:
-
-This template includes compilication support, tests, a validation workflow, publishing, and versioning guidance.  
-
-If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
-
-## Create an action from this template
-
-Click the `Use this Template` and provide the new repo details for your action
-
-## Code in Master
-
-Install the dependencies  
-```bash
-$ npm install
-```
-
-Build the typescript and package it for distribution
-```bash
-$ npm run build && npm run pack
-```
-
-Run the tests :heavy_check_mark:  
-```bash
-$ npm test
-
- PASS  ./index.test.js
-  ✓ throws invalid number (3ms)
-  ✓ wait 500 ms (504ms)
-  ✓ test runs (95ms)
-
-...
-```
-
-## Change action.yml
-
-The action.yml contains defines the inputs and output for your action.
-
-Update the action.yml with your name, description, inputs and outputs for your action.
-
-See the [documentation](https://help.github.com/en/articles/metadata-syntax-for-github-actions)
-
-## Change the Code
-
-Most toolkit and CI/CD operations involve async operations so the action is run in an async function.
-
-```javascript
-import * as core from '@actions/core';
-...
-
-async function run() {
-  try { 
-      ...
-  } 
-  catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
-run()
-```
-
-See the [toolkit documentation](https://github.com/actions/toolkit/blob/master/README.md#packages) for the various packages.
-
-## Publish to a distribution branch
-
-Actions are run from GitHub repos so we will checkin the packed dist folder. 
-
-Then run [ncc](https://github.com/zeit/ncc) and push the results:
-```bash
-$ npm run pack
-$ git add dist
-$ git commit -a -m "prod dependencies"
-$ git push origin releases/v1
-```
-
-Your action is now published! :rocket: 
-
-See the [versioning documentation](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
-
-## Validate
-
-You can now validate the action by referencing `./` in a workflow in your repo (see [test.yml](.github/workflows/test.yml)])
-
-```yaml
-uses: ./
+## :arrow_forward: Usage
+```yml
+uses: kentaro-m/qr-code-commenter-action@master
 with:
-  milliseconds: 1000
+  repo-token: "${{ secrets.GITHUB_TOKEN }}"
+  content: https://blog.kentarom.com/
+  comment: |
+    :lock: This is a QR code for access to the preview website.
+    :iphone: Scan a code with your device.
+    {qrcode}
 ```
 
-See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! :rocket:
+### Set up required parameters
+Need to contain the required parameters on the workflow file.
 
-## Usage:
+- `repo-token` Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`
+- `content` The content to encode to QR code. Must be string.
+- `comment` The body for comment to post to a pull request comment. Must be contained `{qrcode}` placeholder and placed it to a new line.
 
-After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md) to reference the stable and latest V1 action
+### Use a text outputted from the other action as input
+You can use a text outputted from the other action as input.
+
+Check the following page about the detail of `outputs` syntax: [Metadata syntax for GitHub Actions - GitHub Help](https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions#outputs)
+
+```yml
+uses: kentaro-m/qr-code-commenter-action@master
+with:
+  repo-token: "${{ secrets.GITHUB_TOKEN }}"
+  # Use a text outputted from the other action
+  content: "${{ steps.deploy.outputs.preview_url }}"
+  comment: |
+    :lock: This is a QR code for access to the preview website.
+    :iphone: Scan a code with your device.
+    {qrcode}
+```
+
+## :memo: Licence
+MIT

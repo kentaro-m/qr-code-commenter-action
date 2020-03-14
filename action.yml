@@ -1,10 +1,16 @@
-name: 'Your name here'
+name: 'QR Code Commenter'
 description: 'Provide a description here'
-author: 'Your name or organization here'
+author: 'kentaro-m'
 inputs:
-  myInput:              # change this
+  comment:
     description: 'input description here'
-    default: 'default value if applicable'
+    required: true
+  content:
+    description: 'input description here'
+    required: true
+  repo-token:
+    description: 'input description here'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

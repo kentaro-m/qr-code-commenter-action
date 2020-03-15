@@ -16,7 +16,8 @@ async function run(): Promise<void> {
     await githubAPI.issues.createComment({
       owner: repo.owner,
       repo: repo.repo,
-      number: issue.number,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      issue_number: issue.number,
       body
     })
   } catch (error) {

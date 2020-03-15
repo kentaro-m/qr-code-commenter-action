@@ -5,7 +5,7 @@ A GitHub Action that posts a QR code to a pull request comment.
 
 ## :arrow_forward: Usage
 ```yml
-uses: kentaro-m/qr-code-commenter-action@v0.1.1
+uses: kentaro-m/qr-code-commenter-action@v0.1.2
 with:
   repo-token: "${{ secrets.GITHUB_TOKEN }}"
   content: https://blog.kentarom.com/
@@ -28,7 +28,7 @@ You can use a text outputted from the other action as input.
 Check the following page about the detail of `outputs` syntax: [Metadata syntax for GitHub Actions - GitHub Help](https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions#outputs)
 
 ```yml
-uses: kentaro-m/qr-code-commenter-action@v0.1.1
+uses: kentaro-m/qr-code-commenter-action@v0.1.2
 with:
   repo-token: "${{ secrets.GITHUB_TOKEN }}"
   # Use a text outputted from the other action

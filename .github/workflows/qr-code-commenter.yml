@@ -1,4 +1,4 @@
-name: 'QR Code Generator'
+name: 'Base64 QR Code Generator'
 on: 
   pull_request:
     types: [edited]

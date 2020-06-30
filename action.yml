@@ -8,6 +8,8 @@ inputs:
 outputs:
   data:
     description: 'Base64 Data For the Generated QR Code'
+  text:
+    description: 'ASCII Text Representation of the Generated QR COde'
 runs:
   using: 'node12'
   main: 'dist/index.js'

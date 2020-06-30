@@ -1,8 +1,8 @@
 name: 'Base64 QR Code Generator'
 on: 
   pull_request:
-    types: [edited]
-
+    branches:
+      - master
 jobs:
   action-test:
     runs-on: ubuntu-latest
@@ -12,3 +12,4 @@ jobs:
         with:
           content: https://github.com/hammadj
       - run: echo ${{ steps.qrcode.output.data }}
+      - run: echo ${{ steps.qrcode.output.text }}

@@ -1094,10 +1094,11 @@ function run() {
         try {
             const content = core.getInput('content', { required: true });
             const data = yield QRCode.toDataURL(content);
-            const qrcode = yield QRCode.toString(content, { type: 'terminal' });
-            // eslint-disable-next-line no-console
-            console.log(qrcode);
+            const text = yield QRCode.toString(content);
             core.setOutput('data', data);
+            core.setOutput('text', text);
+            // eslint-disable-next-line no-console
+            console.log(text);
         }
         catch (error) {
             core.setFailed(error.message);

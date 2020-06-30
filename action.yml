@@ -1,16 +1,13 @@
-name: 'QR Code Commenter'
-description: 'A GitHub Action that posts a QR code to a pull request comment.'
-author: 'kentaro-m'
+name: 'QR Code Generator'
+description: 'A GitHub Action that generates a QR code and outputs Base64 data'
+author: 'hammadj'
 inputs:
-  comment:
-    description: 'The body for comment to post to a pull request comment. Must be contained {qrcode} placeholder and placed it to a new line.'
-    required: true
   content:
     description: 'The content to encode to QR code. Must be string.'
     required: true
-  repo-token:
-    description: 'Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
-    required: true
+outputs:
+  data:
+    description: 'Base64 Data For the Generated QR Code'
 runs:
   using: 'node12'
   main: 'dist/index.js'

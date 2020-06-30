@@ -1,4 +1,4 @@
-name: 'QR Code Commenter'
+name: 'QR Code Generator'
 on: 
   pull_request:
     types: [edited]
@@ -7,10 +7,8 @@ jobs:
   action-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/qr-code-commenter-action@60c0c17
+      - uses: hammadj/qr-code-generator@master
+        id: qrcode
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          content: https://blog.kentarom.com/
-          comment: |
-            Hi, Ken! This is test for QR Code Commenter.
-            {qrcode}
+          content: https://github.com/hammadj
+      - run: echo ${{ steps.qrcode.output.data }}

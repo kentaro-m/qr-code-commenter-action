@@ -1,7 +1,7 @@
 {
-  "name": "qr-code-commenter-action",
-  "version": "0.1.2",
-  "description": "A GitHub Action that posts a QR code to a pull request comment.",
+  "name": "qr-code-generator",
+  "version": "0.1.0",
+  "description": "A GitHub Action that generates a QR Code and returns base64 Data",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -14,18 +14,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kentaro-m/qr-code-commenter-action.git"
+    "url": "git+https://github.com/hammadj/qr-code-generator.git"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "kentaro-m",
+  "author": "hammadj",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "@actions/github": "^2.1.1",
     "qrcode": "^1.4.4"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-name: 'QR Code Generator'
+name: 'Base64 QR Code Generator'
 description: 'A GitHub Action that generates a QR code and outputs Base64 data'
 author: 'hammadj'
 inputs:
